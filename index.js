@@ -34,7 +34,7 @@ setInterval(() => {
             });
         });
     });
-}, 100000);
+}, 10000);
 
 
 app.get('/', (req, res) => {
@@ -71,7 +71,7 @@ var upload = multer({
 
 var upload = multer({
     storage: storage,
-    // limits: { fileSize: maxSize }
+    limits: { fileSize: maxSize }
 }).single("file");
 
 /*
@@ -86,7 +86,7 @@ app.post('/uploadfile', (req, res) => {
             console.log(err)
         }
         else {
-            console.log({ data: req.file.path })
+            // console.log({ data: req.file.path })
             res.json({ data: req.file.filename })
         }
     })
